@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Artistic Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <img src="logo.png" class="logo">
+
+    <div class="brand-text">The Artistic Hub</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Where Dance meets Creativity</h1>
+        <p>Move. Express. Grow.</p>
+    </div>
+</section>
+
+
+<section id="services" class="section">
+    <h2>What We Offer</h2>
+    <br>
+    <div class="services">
+        <div class="card">Dance (All Ages)</div>
+        <div class="card">Yoga</div>
+        <div class="card">Zumba</div>
+        <div class="card">Art & Craft</div>
+        <div class="card">Wedding & Corporate Choreography</div>
+    </div>
+</section>
+
+<section class="section highlights">
+    <h2>Our Programs</h2>
+
+    <div class="highlight-grid">
+
+    <div class="highlight-card">
+        <img src="art.jpg">
+    </div>
+
+    <div class="highlight-card">
+        <img src="dance.jpg">
+    </div>
+
+    <div class="highlight-card">
+        <img src="phonics.jpg">
+    </div>
+
+    <div class="highlight-card">
+        <img src="ladies.png">
+    </div>
+
+    <div class="highlight-card">
+        <img src="kids.png">
+    </div>
+
+</div>
+</section>
+
+<section class="section about">
+    <h2>About Us</h2>
+
+    <p>
+        The Artistic Hub is a dynamic creative studio located in JP Nagar, Bangalore, dedicated to nurturing talent and self-expression across all age groups. With over a decade of experience, the studio has built a strong community of learners who come together to explore movement, creativity, and personal growth.
+    </p>
+
+    <p>
+        We offer a diverse range of programs including dance, yoga, Zumba, art and craft, and specialized choreography for weddings and corporate events. Each session is designed to be engaging, inclusive, and focused on helping individuals grow with confidence.
+    </p>
+
+    <p>
+        More than just a training space, The Artistic Hub is a place where creativity thrives - encouraging students to express themselves freely while building discipline, skill, and passion.
+    </p>
+</section>
+
+
+<section id="gallery" class="section">
+    <h2>Gallery</h2>
+    <br>
+    <div class="gallery">
+        <img src="gallery1.jpg">
+        <img src="gallery2.jpg">
+        <img src="gallery3.jpg">
+        <img src="gallery4.jpg">
+        <img src="gallery5.webp">
+        <img src="gallery6.webp">
+        <img src="gallery7.webp">
+        <img src="gallery8.webp">
+    </div>
+</section>
+
+
+<section id="contact" class="section contact">
+    <h2>Get in Touch</h2>
+    <p>📞 6366494422</p>
+    <p>📍 448, Basement, 18th Main Road, JP Nagar, Bangalore</p>
+</section>
+
+
+<footer>
+    <p>© 2026 The Artistic Hub</p>
+</footer>
+
+<script>
+window.addEventListener("scroll", function() {
+    const header = document.querySelector("header");
+    header.classList.toggle("scrolled", window.scrollY > 50);
+});
+</script>
+
+<script>
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+</script>
+
+<script>
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(section => {
+        const boxTop = section.getBoundingClientRect().top;
+
+        if (boxTop < triggerBottom) {
+            section.classList.add("show");
+        }
+    });
+});
+</script>
+
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+const images = document.querySelectorAll(".gallery img, .highlight-card img");
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+});
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+        lightbox.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
